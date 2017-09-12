@@ -1,0 +1,36 @@
+{
+  "name": "dude-wheres-my-hd",
+  "version": "1.0.0",
+  "description": "A small CLI tool that will find out which directories are taking up the most your hard drive space.",
+  "keywords": [
+    "dude",
+    "where",
+    "is",
+    "my",
+    "hard",
+    "drive"
+  ],
+  "author": {
+    "name": "Happy Medium",
+    "email": "developers@itsahappymedium.com",
+    "url": "https://itsahappymedium.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsahappymedium/dude-wheres-my-hd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itsahappymedium/dude-wheres-my-hd/issues"
+  },
+  "homepage": "https://github.com/itsahappymedium/dude-wheres-my-hd",
+  "license": "MIT",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "columnify": "^1.5.4",
+    "filesize": "^3.5.10"
+  }
+}
