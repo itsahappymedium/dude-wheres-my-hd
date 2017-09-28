@@ -10,12 +10,26 @@ function getDirectorySize (dir) {
   var files = fs.readdirSync(dir)
   var size = 0
 
-  files.forEach(file => {
-    file = dir + '/' + file
-    if (fs.lstatSync(file).isDirectory()) {
-      size += getDirectorySize(file)
+  files.forEach(path => {
+    var path = dir + '/' + path
+    var stats
+    try {
+      stats = fs.statSync(path)
+    } catch (err) {
+      // printing too many long filenames can overwhelm the GC
+      if (err.code === 'ENAMETOOLONG') {
+        console.error('ENAMETOOLONG: name too long (filename omitted)')
+      } else {
+        console.error(err.message)
+      }
+
+      return
+    }
+
+    if (stats.isDirectory()) {
+      size += getDirectorySize(path)
     } else {
-      size += fs.statSync(file).size
+      size += stats.size
     }
   })
 
